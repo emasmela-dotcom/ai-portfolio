@@ -4,7 +4,7 @@ A professional showcase platform for AI-powered solutions and digital projects. 
 
 ## 🚀 Live Demo
 
-[View Live Site](https://ai-portfolio.vercel.app) *(Coming Soon)*
+[View Live Site](https://aiportfolio.vercel.app)
 
 ## 📋 Overview
 
