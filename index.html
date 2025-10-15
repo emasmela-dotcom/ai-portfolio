@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio - Professional AI Solutions</title>
+    <meta name="description" content="Professional AI-powered solutions and digital platforms. Showcasing ClearCore AI, BusinessHub, and innovative AI tools.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #0066ff;
+            --accent-light: #3385ff;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #808080;
+            --border: #333333;
+            --surface: #1f1f1f;
+            --surface-hover: #262626;
+            --gradient: linear-gradient(135deg, #0066ff 0%, #00aaff 100%);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 48px rgba(0, 102, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: var(--accent);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background: var(--secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .project-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .project-tagline {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .project-features li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            padding: 12px 24px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        .project-link.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .project-link.secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--primary);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--secondary);
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--surface);
+            padding: 16px 24px;
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            background: var(--surface-hover);
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            background: var(--primary);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 64px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            }
+
+            .section-title {
+                font-size: 48px;
+            }
+
+            .about-title {
+                font-size: 48px;
+            }
+
+            .contact-title {
+                font-size: 48px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .hero {
+                padding: 140px 0 100px;
+            }
+
+            .projects {
+                padding: 100px 0;
+            }
+
+            .about {
+                padding: 100px 0;
+            }
+
+            .contact {
+                padding: 100px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">AI Portfolio</div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate">
+                <span class="hero-label">Professional AI Solutions</span>
+                <h1 class="hero-title">Innovative AI-Powered Platforms</h1>
+                <p class="hero-subtitle">Showcasing cutting-edge AI tools, intelligent automation, and digital platforms that drive real business results.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Professional AI solutions and digital platforms built with cutting-edge technology</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- ClearCore AI Project -->
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <div class="project-logo">CCAI</div>
+                        <div>
+                            <h3 class="project-title">ClearCore AI</h3>
+                            <p class="project-tagline">Intelligent AI Tools & Automation</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Professional AI-powered tools and automation solutions that integrate seamlessly into existing business operations. From intelligent chatbots to data analytics, ClearCore AI delivers practical AI solutions without requiring complete system overhauls.
+                    </p>
+                    <ul class="project-features">
+                        <li>Custom AI chatbot development</li>
+                        <li>Business process automation</li>
+                        <li>Data analytics and insights</li>
+                        <li>Seamless integration solutions</li>
+                        <li>Affordable pricing ($500 - $4,500)</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://clearcoreai.vercel.app" target="_blank" class="project-link">View Live Site</a>
+                        <a href="#contact" class="project-link secondary">Get Quote</a>
+                    </div>
+                </div>
+
+                <!-- BusinessHub Project -->
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <div class="project-logo">BH</div>
+                        <div>
+                            <h3 class="project-title">BusinessHub</h3>
+                            <p class="project-tagline">AI-Powered Website Solutions</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Complete website development platform specializing in AI-enhanced business websites. From concept to deployment, BusinessHub creates professional, responsive websites with integrated AI features and modern design principles.
+                    </p>
+                    <ul class="project-features">
+                        <li>Custom website development</li>
+                        <li>Mobile-first responsive design</li>
+                        <li>AI-powered content optimization</li>
+                        <li>SEO and performance optimization</li>
+                        <li>Transparent pricing tiers</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://businesshub.vercel.app" target="_blank" class="project-link">View Live Site</a>
+                        <a href="#contact" class="project-link secondary">Start Project</a>
+                    </div>
+                </div>
+
+                <!-- ReadAI Project -->
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <div class="project-logo">RA</div>
+                        <div>
+                            <h3 class="project-title">ReadAI</h3>
+                            <p class="project-tagline">Intelligent Reading Platform</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Advanced reading platform with AI-powered book recommendations, intelligent categorization, and personalized learning paths. Features comprehensive book libraries across multiple genres with smart search and discovery capabilities.
+                    </p>
+                    <ul class="project-features">
+                        <li>AI-powered book recommendations</li>
+                        <li>Intelligent content categorization</li>
+                        <li>Personalized reading paths</li>
+                        <li>Comprehensive book libraries</li>
+                        <li>Smart search and discovery</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://readai-ten.vercel.app" target="_blank" class="project-link">View Live Site</a>
+                        <a href="#contact" class="project-link secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content animate">
+                <h2 class="about-title">About AI Portfolio</h2>
+                <p class="about-text">
+                    AI Portfolio represents a collection of professional AI-powered solutions and digital platforms. Each project is built with modern technology, user-centered design, and practical business applications in mind.
+                </p>
+                <p class="about-text">
+                    From intelligent automation tools to complete website platforms, our focus is on delivering real value through innovative AI integration and professional development practices.
+                </p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Mobile Responsive</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Live Platforms</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content animate">
+                <h2 class="contact-title">Ready to Build Something Amazing?</h2>
+                <p class="contact-subtitle">Let's discuss your AI-powered project or explore how our solutions can enhance your business.</p>
+                <a href="mailto:hello@aiportfolio.dev" class="contact-email">
+                    <span>📧</span>
+                    hello@aiportfolio.dev
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2025 AI Portfolio. Professional AI solutions and digital platforms.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards and sections
+        document.querySelectorAll('.project-card, .section-header, .about-content, .contact-content').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
